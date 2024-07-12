@@ -11,13 +11,8 @@
         public function getConnection() {
             $this->conn = null;
             try {
-                $this->conn = new PDO("
-                mysql:host=".$this->host.";
-                dbname=".$this->db.";
-                charset=".$this->charset.";", 
-                $this->username, 
-                $this->password);
-                
+                $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db.";charset=".$this->charset.";", $this->username, $this->password);
+                // echo "[Success] -> Connect successfuly ";
             }catch(PDOException $e) {
                 echo "[Error] -> ".$e->getMessage();
             }

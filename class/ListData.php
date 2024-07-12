@@ -12,21 +12,26 @@
 
         public function setStudentCode($StudentCode){
             $this->StudentCode = $StudentCode;
+            // echo "func : " . $this->StudentCode ;
         }
 
-        public function SelectData($StudentCode) {
-            $stdCode = $StudentCode;
+            
+        public function SelectData($std) {
+            $stdCode = $std;
             $query = "SELECT * FROM {$this->table} WHERE STUDENTCODE = :StudentCode";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":StudentCode", $stdCode);
             $stmt->execute();
 
             if($stmt->rowCount() > 0){
-                $data = $stmt->fetch(PDO::FETCH_ASSOC);
-                return $data;
+                $std = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $std;
             }else{
                 return false;
             }
+
+            }
+            
         }
-    }
+    
 ?>
