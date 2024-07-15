@@ -84,6 +84,7 @@
             </div>
         </div>
         <?php }?>
+
 </body>
 <?php include_once('config/script.php') ?>
 
